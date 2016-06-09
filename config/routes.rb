@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#land'
 
+  get 'reports/age-distribution' => 'reports/age_distribution', as: :age_distribution_report
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

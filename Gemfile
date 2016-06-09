@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
 gem 'jquery-turbolinks'
+gem 'chartkick'
 
 group :development, :test do
   gem 'byebug'

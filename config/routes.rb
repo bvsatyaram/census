@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'home#land'
 
   get 'reports/age-distribution' => 'reports/age_distribution', as: :age_distribution_report
+  get 'reports/age-change' => 'reports/age_change', as: :age_change_report
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

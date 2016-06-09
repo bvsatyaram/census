@@ -26,9 +26,19 @@ class ReportsController < ApplicationController
     end
   end
 
+  def sex_compare
+    @country = params[:country] || "IN"
+    @year = params[:year] || 2014
+    male_uri = URI(api_end_point(@country, @year, 1))
+    male_data = fetch_api_data(male_uri)
+    female_uri = URI(api_end_point(@country, @year, 2))
+    female_data = fetch_api_data(female_uri)
+    @data = [{name: "Male", data: male_data}, {name: "Female", data: female_data}]
+  end
+
 private
-  def api_end_point(country, year)
-    "http://api.census.gov/data/timeseries/idb/1year?get=AREA_KM2,NAME,AGE,POP&FIPS=#{country}&time=#{year}&SEX=0&key=d74841bef8b2042e2912fcd70e739b4c08f3213f"
+  def api_end_point(country, year, sex = 0)
+    "http://api.census.gov/data/timeseries/idb/1year?get=AREA_KM2,NAME,AGE,POP&FIPS=#{country}&time=#{year}&SEX=#{sex}&key=d74841bef8b2042e2912fcd70e739b4c08f3213f"
   end
 
   def fetch_api_data(uri)

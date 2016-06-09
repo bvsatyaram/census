@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'reports/age-distribution' => 'reports/age_distribution', as: :age_distribution_report
   get 'reports/age-change' => 'reports/age_change', as: :age_change_report
+  get 'reports/sex-compare' => 'reports/sex_compare', as: :sex_compare_report
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
